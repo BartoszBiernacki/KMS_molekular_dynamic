@@ -10,9 +10,9 @@ from simulation import run_simulation
 # -----------------------------------------------------------------------------------------
 if __name__ == "__main__":
     print("NEW MAIN RUN")
-    n = 10  # OK
+    n = 5  # OK
     k = 8.31e-3  # OK
-    T0 = 1000  # OK
+    T0 = 0.  # OK
     mass = 40  # OK
     a = 0.38  # ?
     epsilon = 1  # OK
