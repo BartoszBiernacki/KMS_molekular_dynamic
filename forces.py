@@ -29,7 +29,7 @@ def calculate_interaction_net_forces_acting_on_i_th_particle(i, positions, epsil
 			rij = positions[i] - positions[j]
 			rij_norm = calculate_norm(rij)
 
-			net_force += 12*epsilon*((R/rij_norm)**12 - (R/rij_norm)**6) * (rij/rij_norm)
+			net_force += 12*epsilon*((R/rij_norm)**12 - (R/rij_norm)**6) * (rij/(rij_norm**2))
 	return net_force
 
 

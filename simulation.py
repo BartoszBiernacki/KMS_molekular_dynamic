@@ -16,7 +16,7 @@ def remove_file(filename):
 
 def prepare_state_parameters_file(filename):
     with open(filename, "a") as myfile:
-        myfile.write(f"time, hamiltonian, potential_energy, temperature, pressure\n")
+        myfile.write(f"time,hamiltonian,potential_energy,temperature,pressure\n")
 
 
 def write_state_parameters_to_file(filename, t, H, V, T, P):

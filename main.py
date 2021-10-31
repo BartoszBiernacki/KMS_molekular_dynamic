@@ -1,5 +1,6 @@
 import cProfile
 import pstats
+import matplotlib.pyplot as plt
 
 from initial_position import create_initial_pos_file_in_xyz_format
 from momentums import generate_n3_random_3D_momentums
@@ -36,6 +37,14 @@ if __name__ == "__main__":
         run_simulation(num_of_steps, tau, positions, momentums, epsilon, R, f, L, mass, k, S_out, S_xyz)
     stats = pstats.Stats(pr)
     stats.sort_stats(pstats.SortKey.TIME)
-    stats.print_stats()
+    stats.print_stats(3)
 
     print("\nDone")
+
+    # * ----------------------------------------------------------------------------------
+    import pandas as pd
+
+    df = pd.read_csv('result_state_parametres.txt')
+    df.head()
+    df['hamiltonian'].plot()
+    plt.show()
