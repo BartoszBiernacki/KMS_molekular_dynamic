@@ -15,15 +15,6 @@ def calculate_hamiltonian(momentums, mass, positions, epsilon, R, f, L):
 
 
 @njit
-def calculate_avg_hamiltonian(S0, Sd, hamiltonians):
-    sum_of_hamiltonians = 0
-    for s in range(S0, S0 + Sd, 1):
-        sum_of_hamiltonians += hamiltonians[s]
-    avg_hamiltonian = sum_of_hamiltonians / Sd
-    return avg_hamiltonian
-
-
-@njit
 def calculate_all_kinetic_energies(momentums, mass):
     momentums_norms_squared = calculate_norms(momentums) ** 2
     return momentums_norms_squared / (2 * mass)
