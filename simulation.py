@@ -112,6 +112,7 @@ def save_plot_of_given_data(data_filename, out_dir, T0, variable_name, variable_
     filename = "{}(t)_n=".format(variable_symbol) + str(n) + "_T0=" + str(T0) + ".pdf"
     filepath = out_dir + filename
     plt.savefig(filepath)
+    plt.close()
 
 
 def run_simulation(num_of_steps, tau, positions, momentums, epsilon, R, f, L, mass, k, S_out, S_xyz, T0,
