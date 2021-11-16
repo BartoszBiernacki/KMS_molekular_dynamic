@@ -2,6 +2,7 @@ from momentums import generate_n3_random_3D_momentums
 from simulation import run_simulation
 from initial_position import create_initial_pos_file_in_xyz_format
 from pathlib import Path
+import time
 
 
 if __name__ == '__main__':
@@ -24,14 +25,14 @@ if __name__ == '__main__':
     L = 2.3 * a * (n - 1)
     tau = 1e-3  # ?
 
-    num_of_steps = 1000
+    num_of_steps = 3000
     S_out = 10
     S_xyz = 100
     # *****************************************************************************************************************
 
     # variable parameters *********************************************************************************************
-    n_values = [6]
-    T0_values = [80, 100, 120]
+    n_values = [5, 6, 7]
+    T0_values = [0, 1000]
     # *****************************************************************************************************************
 
     for n in n_values:
@@ -39,6 +40,8 @@ if __name__ == '__main__':
             momentums = generate_n3_random_3D_momentums(n, k, T0, mass)
             positions = create_initial_pos_file_in_xyz_format(n, a, out_initialization_dir)
 
+            time.sleep(0.01)    # to ensure that progress bar will display correctly
             print(f"n={n}, T0={T0}, steps={num_of_steps}")
             run_simulation(num_of_steps, tau, positions, momentums, epsilon, R, f, L, mass, k, S_out, S_xyz, T0,
                            out_dynamic_dir=out_dynamic_dir, out_images_dir=out_images_dir)
+
